@@ -1,0 +1,18 @@
+{
+  "name": "cypress-visual-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test-run": "npx cypress open --env version=test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^11.2.0",
+    "cypress-plugin-snapshots": "^1.4.4",
+    "execSync": "^1.0.2",
+    "readline-sync": "^1.4.10"
+  }
+}
