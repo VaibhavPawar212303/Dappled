@@ -4,6 +4,7 @@ const fs = require("fs");
 const buildData = require("../build.json");
 
 const getBuilds = (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   res.status(200).json({ buildData });
 };
 
@@ -28,13 +29,24 @@ const getBuildById = (req, res) => {
 };
 
 const setBuild = (req, res) => {
-  var Build = req.body.runTestData;
+  var Project_Name = req.body.ProjectName;
+  var Build_Description = req.body.build_description;
+  var status = req.body.status;
+  var BuildStartAt = req.body.BuildStartAt;
+  var BuildEndAt = req.body.BuildEndAt;
+  var totalTests = req.body.totalTests;
+  var totalTestsSkipped = req.body.totalTestsSkipped;
   fsPromises.readFile("build.json", "utf-8").then((data) => {
     let json = JSON.parse(data);
     json.push({
       id: json.length + 1,
-      Build_Id: json.length + 1,
-      Build,
+      Project_Name,
+      Build_Description,
+      status,
+      BuildStartAt,
+      BuildEndAt,
+      totalTests,
+      totalTestsSkipped,
     });
     fs.writeFileSync("build.json", JSON.stringify(json), function (err) {
       if (err) throw err;

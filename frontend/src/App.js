@@ -1,5 +1,5 @@
-import Projects from "./components/Project/Projects";
 import { Route, Routes } from "react-router-dom";
+import Projects from "./components/Project/Projects";
 import ProjectDetails from "./components/ProjectDetails/ProjectDetails";
 import CreateProject from "./components/CreateProject/CreateProject";
 import Board from "./components/Board/Board";

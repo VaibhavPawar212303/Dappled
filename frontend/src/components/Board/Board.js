@@ -19,17 +19,16 @@ const visual = localStorage.getItem("Visual");
 const API = localStorage.getItem("API");
 const Smoke = localStorage.getItem("Smoke");
 
-
 //Regression count
-fetch(`https://testrig.onrender.com/api/project/getTestCount/regression/${id}`, {
+fetch(`https://dappled.onrender.com/api/build/1`, {
   method: "GET",
+  mode:"cors"
 })
   .then((response) => {
     return response.json();
   })
   .then((data) => {
-    var builds = data.result.length;
-    localStorage.setItem("Regression", builds);
+    console.log(data);
   });
 //Visual count
 fetch(`https://testrig.onrender.com/api/project/getTestCount/visual/${id}`, {

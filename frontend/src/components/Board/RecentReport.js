@@ -1,16 +1,13 @@
-import React, { useState } from "react";
-const BuildId = localStorage.getItem("Build");
 
+import React, { useState } from "react";
+var id;
 function RecentReport() {
   const [report, setReport] = useState("");
   //getReport
-  fetch(`https://testrig.onrender.com/api/project/getReport/${BuildId}`, {
+  fetch({
+    url: `http://localhost:8000/api/build/${id}`,
     method: "GET",
-    mode: "cors",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
+    mode: "no-cors",
   })
     .then((response) => {
       return response.json();

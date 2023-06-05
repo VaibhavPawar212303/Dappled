@@ -1,5 +1,7 @@
 const { defineConfig } = require("cypress");
 const { initPlugin } = require("cypress-plugin-snapshots/plugin");
+const { passBuildData } = require("./buildController");
+var readline = require("readline-sync");
 
 module.exports = defineConfig({
   e2e: {
@@ -12,12 +14,12 @@ module.exports = defineConfig({
       config.env = require(`./cypress/config/${version}.env.json`);
       config.baseUrl = config.env.baseUrl;
       on("after:run", (results) => {
-        let runTestData = results.runs;
-        fetch("http://localhost:8000/api/build", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ runTestData }),
-        });
+        var status = results.status;
+        var startAt = results.startedTestsAt;
+        var endAt = results.endedTestsAt;
+        var totalTests = results.totalTests;
+        var skipped = results.totalSkipped;
+        passBuildData(status, startAt, endAt, totalTests, skipped);
       });
       return config;
     },
