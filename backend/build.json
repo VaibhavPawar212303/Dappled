@@ -1,1 +1,44 @@
-[{"id":1,"Project_Name":"Dappled","Build_Description":"Visual Testing","status":"finished","BuildStartAt":"2023-06-04T16:27:59.436Z","BuildEndAt":"2023-06-04T16:28:44.567Z","totalTests":2,"totalTestsFailed":0,"totalTestsSkipped":0},{"id":2,"Project_Name":"Dappled","Build_Description":"Visual Testing","status":"finished","BuildStartAt":"2023-06-04T17:06:08.739Z","BuildEndAt":"2023-06-04T17:06:56.851Z","totalTests":2,"totalTestsFailed":0,"totalTestsSkipped":0},{"id":3,"Project_Name":"Dappled","Build_Description":"Visual Testing","status":"finished","BuildStartAt":"2023-06-04T17:12:24.291Z","BuildEndAt":"2023-06-04T17:13:24.509Z","totalTests":2,"totalTestsSkipped":0}]
+[
+  {
+    "id": 1,
+    "Project_Name": "Dappled",
+    "Build_Description": "Visual Testing",
+    "status": "finished",
+    "BuildStartAt": "2023-06-04T16:27:59.436Z",
+    "BuildEndAt": "2023-06-04T16:28:44.567Z",
+    "totalTests": 2,
+    "totalTestsFailed": 0,
+    "totalTestsSkipped": 0
+  },
+  {
+    "id": 2,
+    "Project_Name": "Dappled",
+    "Build_Description": "Visual Testing",
+    "status": "finished",
+    "BuildStartAt": "2023-06-04T17:06:08.739Z",
+    "BuildEndAt": "2023-06-04T17:06:56.851Z",
+    "totalTests": 2,
+    "totalTestsFailed": 0,
+    "totalTestsSkipped": 0
+  },
+  {
+    "id": 3,
+    "Project_Name": "Dappled",
+    "Build_Description": "Visual Testing",
+    "status": "finished",
+    "BuildStartAt": "2023-06-04T17:12:24.291Z",
+    "BuildEndAt": "2023-06-04T17:13:24.509Z",
+    "totalTests": 2,
+    "totalTestsSkipped": 0
+  },
+  {
+    "id": 4,
+    "Project_Name": "Dappled",
+    "Build_Description": "Visual Testing",
+    "status": "finished",
+    "BuildStartAt": "2023-06-06T12:46:51.639Z",
+    "BuildEndAt": "2023-06-06T12:47:04.732Z",
+    "totalTests": 1,
+    "totalTestsSkipped": 0
+  }
+]
