@@ -4,7 +4,7 @@ const passBuildData = (status, startAt, endAt, totalTests, skipped) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       ProjectName: "Dappled",
-      build_description: "Visual Testing",
+      Build_Description: "Visual Testing",
       status: status,
       BuildStartAt: startAt,
       BuildEndAt: endAt,

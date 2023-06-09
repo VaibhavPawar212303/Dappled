@@ -1,62 +1,52 @@
-const fsPromises = require("fs").promises;
-const fs = require("fs");
+const asyncHandler = require("express-async-handler");
+const Build = require('../model/buildModel');
+// const fsPromises = require("fs").promises;
+// const fs = require("fs");
+//const buildData = require("../build.json");
 
-const buildData = require("../build.json");
+const getBuilds = asyncHandler(async (req, res) => {
+  const builds = await Build.find()
+  res.status(200).json(builds);
+})
 
-const getBuilds = (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.status(200).json({ buildData });
-};
+const getBuildById = asyncHandler(async (req, res) => {
 
-const getBuildById = (req, res) => {
-  var id = req.params.id;
-  var BuildFound;
-  fsPromises.readFile("build.json", "utf-8").then((data) => {
-    let Builds = JSON.parse(data);
-    let arrayLen = Builds.length;
-    var testArray = [];
-    for (var i = 0; i < arrayLen; i++) {
-      if (Builds[i].Build_Id == id) {
-        BuildFound = Builds[i].Build;
-        BuildFound.forEach((test) => {
-          var tests = test.tests;
-          testArray.push(tests);
-        });
-      }
-    }
-    res.status(200).json({ BuidId: id, testArray });
-  });
-};
+})
 
-const setBuild = (req, res) => {
-  var Project_Name = req.body.ProjectName;
-  var Build_Description = req.body.build_description;
+const setBuild = asyncHandler(async (req, res) => {
+
+  var ProjectName = req.body.ProjectName;
+  var Build_Description = req.body.Build_Description;
   var status = req.body.status;
   var BuildStartAt = req.body.BuildStartAt;
   var BuildEndAt = req.body.BuildEndAt;
   var totalTests = req.body.totalTests;
   var totalTestsSkipped = req.body.totalTestsSkipped;
-  fsPromises.readFile("build.json", "utf-8").then((data) => {
-    let json = JSON.parse(data);
-    json.push({
-      id: json.length + 1,
-      Project_Name,
+
+  if (!status) {
+    res.status(400)
+    throw new Error("status is required");
+  } else if (!ProjectName) {
+    res.status(400)
+    throw new Error("Project Name is required");
+  } else {
+    const build = await Build.create({
+      ProjectName,
       Build_Description,
       status,
       BuildStartAt,
       BuildEndAt,
       totalTests,
-      totalTestsSkipped,
-    });
-    fs.writeFileSync("build.json", JSON.stringify(json), function (err) {
-      if (err) throw err;
-      console.log("Saved!");
-    });
-  });
-};
+      totalTestsSkipped
+    })
 
-const deleteBuild = (req, res) => {
+    res.status(200).json(build);
+  }
+
+})
+
+const deleteBuild = asyncHandler((req, res) => {
   res.status(200).json({ message: `delete build ${req.params.id}` });
-};
+})
 
 module.exports = { getBuilds, setBuild, deleteBuild, getBuildById };

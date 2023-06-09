@@ -1,6 +1,10 @@
 const express = require("express");
+const colors = require("colors");
 const dotenv = require("dotenv").config();
-const cors = require("cors");
+
+const { errorHandler } = require("./middleware/errorMiddleware")
+const connectDb = require('./config/db');
+connectDb();
 
 const Port = process.env.Port || 5000;
 
@@ -9,9 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //api call
 app.use("/api/build", require("./routes/buildRoutes"));
-
-app.use(cors());
-
+app.use(errorHandler)
 
 app.listen(Port, () => {
   console.log(`listening on ${Port}`);
