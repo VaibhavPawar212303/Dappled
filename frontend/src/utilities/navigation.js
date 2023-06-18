@@ -1,4 +1,9 @@
-import { HiOutlineViewGrid,HiOutlineCube,HiDocumentText } from "react-icons/hi";
+import {
+  HiOutlineViewGrid,
+  HiOutlineCube,
+  HiDocumentText,
+  HiOutlineBookOpen
+} from "react-icons/hi";
 
 export const DASHBOARD_SIDEBAR_LINKS = [
   {
@@ -13,13 +18,19 @@ export const DASHBOARD_SIDEBAR_LINKS = [
     path: "/builds",
     icon: <HiOutlineCube />,
   },
+  // {
+  //   key: "Test Details",
+  //   label: "Test Details",
+  //   path: "/testDetails",
+  //   icon: <HiOutlineBookOpen />,
+  // },
 ];
 
 export const DASHBOARD_BOTTOM_LINKS = [
-    {
-      key: "readme",
-      label: "Help & Support",
-      path: "/help",
-      icon: <HiDocumentText />,
-    }
-  ];
+  {
+    key: "readme",
+    label: "Help & Support",
+    path: "/help",
+    icon: <HiDocumentText />,
+  },
+];
