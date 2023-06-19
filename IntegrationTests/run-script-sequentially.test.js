@@ -15,7 +15,7 @@ fs.readdir(directoryPath, (err, files, on) => {
   }
   //run all spec files one after another
   execSync(
-    `npx cypress run --spec "${filePath}/**/*.spec.cy.js" --headed`,
+    `npx cypress run --spec "${filePath}/**/*.spec.cy.js"`,
     (error, stdout, stderr) => {
       if (error) {
         console.error(`exec error: ${error}`);
