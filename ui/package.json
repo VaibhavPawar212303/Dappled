@@ -2,7 +2,6 @@
   "name": "Dappled",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8000/",
   "scripts": {
     "frontend": "react-scripts start",
     "build": "react-scripts build",
@@ -10,10 +9,7 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
