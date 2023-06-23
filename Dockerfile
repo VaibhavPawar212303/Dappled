@@ -1,9 +1,8 @@
 FROM node:16
-FROM mongo:latest
-
 COPY . /app
 WORKDIR /app/backend 
-CMD [ "npm","install","npm","run","server"] 
+FROM mongo:latest
+CMD [ "npm","run","server"] 
 
 
 
