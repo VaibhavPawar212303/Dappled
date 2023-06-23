@@ -3,8 +3,8 @@ FROM mongo:latest
 
 COPY . /app
 WORKDIR /app/backend 
-RUN npm install
-RUN npm run server
+CMD [ "npm","install","npm","run","server"] 
+
 
 
 
